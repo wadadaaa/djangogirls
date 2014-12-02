@@ -17,10 +17,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = '#b7&!k2cxgw5+s$%s&p#+!_8=*lo9mv-3*p0gsozvs3%myb(=k'
+#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -108,9 +109,11 @@ SUIT_CONFIG = {
 MEDIA_ROOT = 'staticfiles/media'
 MEDIA_URL = '/static/media/'
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')
-AWS_STORAGE_BUCKET_NAME = 'djangogirls'
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')
+AWS_ACCESS_KEY_ID = 'AKIAIDYIUWG6Y4ZLMLGA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'django-girls'
 
 AWS_HEADERS = {
     'Cache-Control': 'public, max-age=86400',
@@ -129,7 +132,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 RAVEN_CONFIG = {
