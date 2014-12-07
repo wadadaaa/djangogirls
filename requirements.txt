@@ -11,13 +11,15 @@ django-storages==1.1.8
 django-suit==0.2.9
 django-suit-redactor==0.0.2
 gunicorn==19.1.0
+icalendar==3.8.4
 lxml==3.4.0
 markdown2==2.3.0
 psycopg2==2.5.3
 pyquery==1.2.9
+pytz==2014.9
 raven==5.0.0
 requests==2.3.0
 six==1.7.3
+uWSGI==2.0.8
 whitenoise==1.0.3
 wsgiref==0.1.2
-icalendar==3.8.4
