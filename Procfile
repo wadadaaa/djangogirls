@@ -1,1 +1,1 @@
-web: gunicorn djangogirls.wsgi
+web: uwsgi uwsgi.ini

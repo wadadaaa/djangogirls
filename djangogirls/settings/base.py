@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+root = os.getcwd()
+cd = lambda *p: os.path.join(root, *p)
+project = os.path.basename(root)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -46,7 +49,7 @@ INSTALLED_APPS = (
 
     'raven.contrib.django.raven_compat',
     'django_date_extensions',
-    'storages',
+    #'storages',
     'markdown_deux',
 
     'core'
@@ -106,28 +109,33 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Django Girls'
 }
 
-MEDIA_ROOT = 'staticfiles/media'
-MEDIA_URL = '/static/media/'
+#MEDIA_ROOT = 'staticfiles/media'
+#MEDIA_URL = '/static/media/'
 
 # AWS_ACCESS_KEY_ID = os.environ.get('AWS_KEY_ID')
 # AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')
-AWS_ACCESS_KEY_ID = 'AKIAIDYIUWG6Y4ZLMLGA'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'django-girls'
+#AWS_ACCESS_KEY_ID = 'AKIAIDYIUWG6Y4ZLMLGA'
+#AWS_SECRET_ACCESS_KEY = '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'
+#AWS_STORAGE_BUCKET_NAME = 'django-girls'
 
-AWS_HEADERS = {
-    'Cache-Control': 'public, max-age=86400',
-}
-AWS_QUERYSTRING_AUTH = False
+#AWS_HEADERS = {
+#    'Cache-Control': 'public, max-age=86400',
+#}
+#AWS_QUERYSTRING_AUTH = False
 
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+#STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
-STATIC_ROOT = 'staticfiles'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#STATIC_ROOT = 'staticfiles'
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = '/assets/'
+STATIC_ROOT = cd('public/assets')
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = cd('public/uploads')
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
