@@ -24,9 +24,9 @@ SECRET_KEY = '#b7&!k2cxgw5+s$%s&p#+!_8=*lo9mv-3*p0gsozvs3%myb(=k'
 #SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEV')
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = os.environ.get('DEV')
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
@@ -92,7 +92,9 @@ USE_TZ = True
 
 # Templates
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIRS = (
+    cd('templates'),
+)
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
@@ -127,7 +129,7 @@ SUIT_CONFIG = {
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 #STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
 
 #STATIC_ROOT = 'staticfiles'
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -136,6 +138,8 @@ STATIC_ROOT = cd('public/assets')
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = cd('public/uploads')
 
+
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
